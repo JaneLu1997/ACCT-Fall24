@@ -1,0 +1,70 @@
+body {
+    width: 85%;
+    margin: auto;
+    background-color:whitesmoke;
+}
+
+
+h1 {
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 2pt;
+    font-weight:100;
+    text-align: center;
+    padding: 110px;
+    font-size: 50pt;
+}
+
+h2 {
+    width: 300px;
+    margin-left: 80px;
+    margin-right:80px;
+    text-align: left;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+p{
+    width: 300px;
+    margin-left: 80px;
+    margin-right:80px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+li {
+    width: 50%;
+    margin-left:auto;
+    margin-right:auto;
+    line-height: 1.5;
+}
+
+.statement{
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 60px;
+    padding: 100px;
+    margin-bottom: 300px;
+    font-weight: 100;
+}
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 50px;
+    height: auto;
+}
+
+.row{
+    display: flex;
+    padding: 30px;
+    margin: 50px;
+    
+}
+
+img {
+    height: 400px;
+    width: auto;
+    padding-left: auto;
+    padding-right: auto;
+    float: left;
+}
