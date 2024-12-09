@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Roboflow + Replit Example</title>
+
+  <!-- Load roboflow.js, the script that will handle loading and running our computer vision model in the browser -->
+  <script src="https://cdn.roboflow.com/0.2.25/roboflow.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+
+  <link rel="stylesheet" href="./style.css" />
+
+  <script>
+    // Replace the key below with your Roboflow publishable key
+    var publishable_key = "rf_38YYB0CW00XAvADls5klzMVkz1q2";
+
+    // Change these values to set your model name, version, and the
+    // confidence threshold that must be met for the model to return
+    // a prediction.
+
+    // We recommend setting a low CONFIDENCE_THRESHOLD value while testing
+    // and filtering out predictions by confidence level using the
+    //"Prediction Confidence %" filter
+
+    const CONFIDENCE_THRESHOLD = 0.1;
+    const MODEL_NAME = "physiognomy-piercing";
+    const MODEL_VERSION = 3;
+  </script>
+</head>
+
+<body>
+  <main class="two-column-layout">
+      <div class="column left-column"> 
+        <img src="instruction.png" width="660" height="auto">
+
+        <p id="loading">Loading...</p>
+
+        <!-- The canvas below is required -->
+        <section class="infer-widget">
+          <canvas width="640" height="480" id="video_canvas"></canvas>
+        </section>
+
+        <section id="settings">
+          <label for="confidence">Prediction Confidence %</label><br>
+          <input type="range" min="1" max="100" value="60" class="slider" id="confidence">
+        </section>
+      </div>
+
+      <div class="column right-column"> 
+      </div>
+
+    <!-- Load our application logic -->
+    <script src="./script.js"></script>
+  </main>
+</body>
+
+</html>

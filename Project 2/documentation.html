@@ -55,7 +55,9 @@
         <div class="column">
             <h2> GEOMETRY NODES SETUP</h2>
             <p>
-                
+                I first set up the instancing on the flower to determine its movement, to give it the scale up and down, plus the wiggling to make it look like a fast-forward mode of growing effect on each of them. As the first image suggested.
+                <br>
+                Second, I found a rock 3D model, then to take the surface nodes and instance the flowers on top of it. This act will hide the original rock model, however that is now what we want. So we'd need a specific setting to turn its visibility back on.
             </p>
         </div>
         <div class="column">
@@ -68,17 +70,31 @@
     </div>
 
     <div class="row">
-        <img src="final_setup.png">
+        <div class="column">
+            <h2> EMPTY & VARIABLES</h2>
+            <p>
+                Now we have the flowers distributing among the surface, we need to change their growing pattern based on an interactive outside force. I create an empty in blender and then put it as an information inside of the rock's nodes.
+                <br>
+                The flower growth at this point looks more like from small to big. However, this is a bit different from what we want it to do: densifying. So instead of changing the scale of the object, we need to modify the density of the object instancing based on the relative position of the empty to the rock. I modified the elements inside of the nodes shown as below:
+                <br>
+                Finally, to prop up the scene and to make it make more sense, I switched out the rock to a beach model, then to place it among a water-looking skybox. Then to set up two different camera angle for this. Voila.
+            </p>
+        </div>
+        <div class="column">
+            <img src="empty_nodes.png">
+            <img src="densityrework.png">
+            <img src="final_setup.png">   
+        </div>
+
     </div>
 
     <div class="row">
         <div class="column">
             <h2> FINAL OUTCOME</h2>
-            <p>
-                For this interface, I'm thinking about making a randomizing finger puppet generating machine based on ml5js's hand pose and p5js.
-            </p>
         </div>
-        <img src="final.gif">
+        <div class="column">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/zwBu7a-5JIY?si=_-r_XcOe3NHoQx6A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
     </div>
     </div>
     </main>

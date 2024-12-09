@@ -1,0 +1,132 @@
+html, body {
+    background-color: #000000;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#fff
+  }
+  
+  p, a {
+    line-height: 0.5em;
+  }
+
+  /*column divider here*/
+  .two-column-layout {
+    display: flex;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    box-sizing: border-box;
+}
+
+.column {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.left-column {
+    justify-content: flex-start;
+}
+
+.right-column {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%; /* Ensure it fills the parent container */
+  background-color: #000000;
+  border-radius: 8px;
+  overflow: hidden; /* Clip overflowing content */
+}
+
+.right-column img,
+.right-column div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.right-column div {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  font-size: 16px;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+  
+  #loading {
+    display: none;
+  }
+  
+  #settings {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  #webcam {
+    transform: scaleX(-1); /* Flip horizontally */
+    transform-origin: center; /* Ensure the flip happens around the center */
+  }
+  
+  h1, a {
+    color: #6706ce;
+  }
+  
+  label {
+    font-weight: 10px;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  main {
+    width: 40em;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .styled-button {
+    color: #fff;
+    text-align: center;
+    background-color: #6706ce;
+    border: 1px solid #6706ce;
+    border-radius: 4px;
+    padding: 13px 20px;
+    line-height: 1.5em;
+    text-decoration: none;
+    display: block;
+    margin: 10px;
+    margin-bottom: 25px;
+    width: 100%;
+  }
+  
+  .infer-widget {
+    width: 480px;
+    margin: auto;
+  }
+  
+  .links {
+    display: flex;
+    text-align: center;
+  }
+  
+  .links:first-child {
+    flex: 0 50%;
+  }
+  
+  .links:last-child {
+    flex: 1 50%;
+  }
