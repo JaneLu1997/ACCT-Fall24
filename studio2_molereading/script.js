@@ -16,35 +16,35 @@ var user_confidence = 0.6;
 const objectResponses = {
     "too hot to handle": {
         type: "image",
-        content: "/Users/janelu/Documents/studio2_molereading/businesscard/toohottohandle.png"  // Replace with your actual image path
+        content: "/Users/janelu/Repository/ACCT-Fall24/studio2_molereading/businesscard/toohottohandle.png"  // Replace with your actual image path
     },
     "allergic to mediocrity": {
         type: "image",
-        content: "/Users/janelu/Documents/studio2_molereading/businesscard/allergictomediocrity.png"
+        content: "/Users/janelu/Repository/ACCT-Fall24/studio2_molereading/businesscard/allergictomediocrity.png"
     },
     "main character energy": {
         type: "image",
-        content: "/Users/janelu/Documents/studio2_molereading/businesscard/maincharacterenergy.png"
+        content: "/Users/janelu/Repository/ACCT-Fall24/studio2_molereading/businesscard/maincharacterenergy.png"
     },
     "passionate soul": {
         type: "image",
-        content: "/Users/janelu/Documents/studio2_molereading/businesscard/passionatesoul.png"
+        content: "/Users/janelu/Repository/ACCT-Fall24/studio2_molereading/businesscard/passionatesoul.png"
     },
     "-sorry i-m in bali": {
         type: "image",
-        content: "/Users/janelu/Documents/studio2_molereading/businesscard/sorryiminbali.png"
+        content: "/Users/janelu/Repository/ACCT-Fall24/studio2_molereading/businesscard/sorryiminbali.png"
     },
     "keep it real": {
         type: "image",
-        content: "/Users/janelu/Documents/studio2_molereading/businesscard/keepitreal.png"
+        content: "/Users/janelu/Repository/ACCT-Fall24/studio2_molereading/businesscard/keepitreal.png"
     },
     "长命long live": {
         type: "image",
-        content: "/Users/janelu/Documents/studio2_molereading/businesscard/eternalbaddie.png"
+        content: "/Users/janelu/Repository/ACCT-Fall24/studio2_molereading/businesscard/eternalbaddie.png"
     },
     "rhinestone": {
         type: "image",
-        content: "/Users/janelu/Documents/studio2_molereading/businesscard/divinenepotism.png"
+        content: "/Users/janelu/Repository/ACCT-Fall24/studio2_molereading/businesscard/divinenepotism.png"
     }
 };
 
