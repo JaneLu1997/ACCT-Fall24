@@ -77,10 +77,24 @@
         <div class="column">
             <h2>COMP4</h2>
             <p>
-                For this interface, I'm thinking about making a randomizing finger puppet generating machine based on ml5js's hand pose and p5js.
+                Added more distorted UV to give it an almost water like quality <br><br>
+                // Apply layered wavy distortions<br>
+                vec2 distortedUV1 = wavy(uv, iTime);<br>
+                vec2 distortedUV2 = wavy(uv * 1.5, iTime * 0.8); // Layer with different scale and speed<br>
+                vec2 distortedUV3 = wavy(uv * 2.0, iTime * 1.2); // Another layer<br>
+                <br>
+                // Combine distortion layers<br>
+                vec2 combinedUV = (distortedUV1 + distortedUV2 + distortedUV3) / 3.0;<br>
+                <br>
+                <br>
+                // Glowing band along y-axis<br>
+                float bandRadius = 0.5 + 0.2 * sin(iTime); // Dynamic radius<br>
+                float bandGlow = glow(combinedUV.y, bandRadius, 12.0);<br>
             </p>
         </div>
-        <img src="shader/v4.gif">
+        <div class="column">
+            <img src="shader/v4.gif">
+        </div>
     </div>
     </div>
 
@@ -88,68 +102,133 @@
         <div class="column">
             <h2> COMP5</h2>
             <p>
-                For this interface, I'm thinking about making a randomizing finger puppet generating machine based on ml5js's hand pose and p5js.
+                Modified the glow bands, adjust the glow intensity as well: <br><br>
+                // Generate glowing bands<br>
+                float dist = abs(sin(iTime * 0.5)) * 0.3 + 0.3; // Dynamic band radius<br>
+                float glow1 = glow(combinedUV.y, dist, 15.0);<br>
+                float glow2 = glow(combinedUV.x, dist, 15.0);<br>
+                <br>
+                // Blend the glowing bands<br>
+                float finalGlow = glow1 + glow2;<br>
+                // Colors<br>
+                vec3 baseColor = vec3(0.1, 0.2, 0.5);  // Background color<br>
+                vec3 glowColor = vec3(1.0, 0.7, 0.4);  // Warm glow<br>
+                <br>
+                vec3 color = baseColor + finalGlow * glowColor; // Add glow effect<br>
             </p>
         </div>
-        <img src="shader/v5.gif">
+        <div class="column">
+            <img src="shader/v5.gif">
+        </div>
     </div>
 
     <div class="row">
         <div class="column">
             <h2> COMP6</h2>
             <p>
-                For this interface, I'm thinking about making a randomizing finger puppet generating machine based on ml5js's hand pose and p5js.
+                Then I added grid glitch to the original noise:<br><br>
+                // Basic noise function<br>
+                float noise(vec2 st) {<br>
+                    vec2 i = floor(st);<br>
+                    vec2 f = fract(st);<br>
+                    float a = random(i);<br>
+                    float b = random(i + vec2(2.0, 2.0));<br>
+                    float c = random(i + vec2(2.0, 2.0));<br>
+                    float d = random(i + vec2(2.0, 2.0));<br>
+                    vec2 u = f * f * (3.0 - 2.0 * f);<br>
+                    return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;<br>
+                }
             </p>
         </div>
-        <img src="shader/v6.gif">
+        <div class="column">
+            <img src="shader/v6.gif">
+        </div>
     </div>
 
     <div class="row">
         <div class="column">
             <h2> COMP7</h2>
             <p>
-                For this interface, I'm thinking about making a randomizing finger puppet generating machine based on ml5js's hand pose and p5js.
+                Modify strength number: <br>
+                float strength =1.1; // Wave strength<br><br><br>
+                Also played with the wavy distortion number to get more interesting image:<br><br>
+                // Wavy distortion [modified*]<br>
+                vec2 wavy(vec2 uv, float time) {<br>
+                    float strength =1.1; // Wave strength<br>
+                    float speed = 3.0;    // Wave speed<br>
+                    float noiseFactor = noise(uv * 4.0 + time);<br>
+                    uv.x += sin(uv.y * 1.0 + time * speed + noiseFactor) * strength;<br>
+                    uv.y += cos(uv.x * 1.0 - time * speed - noiseFactor) * strength;<br>
+                    return uv;<br>
+                }
             </p>
         </div>
-        <img src="shader/v7.gif">
+        <div class="column">
+            <img src="shader/v7.gif">
+        </div>
     </div>
 
     <div class="row">
         <div class="column">
             <h2> COMP8</h2>
             <p>
-                For this interface, I'm thinking about making a randomizing finger puppet generating machine based on ml5js's hand pose and p5js.
+                Modify color:<br><br>
+
+                // Colors<br>
+                vec3 baseColor = vec3(0.6, 0.1, 0.0);  // Background color<br>
+                vec3 glowColor = vec3(1.0, 0.6, 0.7);  // Warm glow<br>
             </p>
         </div>
-        <img src="shader/v8.gif">
+        <div class="column">
+            <img src="shader/v8.gif">
+        </div>
     </div>
 
     <div class="row">
         <div class="column">
             <h2> COMP9</h2>
             <p>
-                For this interface, I'm thinking about making a randomizing finger puppet generating machine based on ml5js's hand pose and p5js.
+                Further modified colors:<br><br>
+                // Colors<br>
+                vec3 baseColor = vec3(0.5, 0.1, 0.5); <br>
+                vec3 highlightColor = vec3(0.9, 0.4, 0.5); <br>
+                vec3 glowColor = vec3(0.0, 0.2, 0.2); <br><br>
+
+                vec3 color = mix(baseColor, highlightColor, combinedUV.x + combinedUV.y);<br>
+                color += finalGlow * glowColor; // Add glowing effect<br>
             </p>
         </div>
-        <img src="shader/v9.gif">
+        <div class="column">
+            <img src="shader/v9.gif">
+        </div>
     </div>
 
     <div class="row">
         <div class="column">
             <h2> COMP10</h2>
             <p>
-                For this interface, I'm thinking about making a randomizing finger puppet generating machine based on ml5js's hand pose and p5js.
+                Further play with noise:<br><br>
+                // Basic noise function<br>
+                float noise(vec2 st) {<br>
+                vec2 i = floor(st);<br>
+                vec2 f = fract(st);<br>
+                float a = random(i);<br>
+                float b = random(i + vec2(1.0, 1.0));<br>
+                float c = random(i + vec2(1.0, 1.0));<br>
+                float d = random(i + vec2(1.0, 1.0));<br>
+                vec2 u = f * f * (9.0 - 1.0 * f);<br>
+                return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;<br>
+            }<br>
             </p>
         </div>
-        <img src="shader/v10.gif">
+        <div class="column">
+            <img src="shader/v10.gif">
+        </div>
     </div>
 
     <div class="row">
         <div class="column">
             <h2> COMP11</h2>
-            <p>
-                For this interface, I'm thinking about making a randomizing finger puppet generating machine based on ml5js's hand pose and p5js.
-            </p>
         </div>
         <img src="shader/v11.gif">
     </div>
